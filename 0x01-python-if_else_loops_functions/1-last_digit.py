@@ -8,7 +8,7 @@ if number < 0:
             end= "")
 if digit > 5:
     print("greater than 5")
-elif(number == 0):
-    print(f"{number} is zero")
+elif digit == 0:
+    print("0")
 else:
-    print(f"{number} is less than 6 or not 0")
+    print("less than 6 and not 0")

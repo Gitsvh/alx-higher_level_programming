@@ -1,32 +1,27 @@
-#include "lists.h"
+#ifndef LISTS_H
+#define LISTS_H
+
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * is_palindrome - checks if a linked list is a palindrome
- *  @head: the head address of the linked list
- *  Return: 1 if it's a palindrome, 0 else
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
  */
-
-int is_palindrome(listint_t **head)
+typedef struct listint_s
 {
-	listint_t *cur = *head;
-	int tab[2048], i = 0, j = 0;
+	int n;
+	struct listint_s *next;
+} listint_t;
 
-	if (*head)
-	{
-		while (cur)
-		{
-			tab[i] = cur->n;
-			cur = cur->next;
-			i++;
-		}
+size_t print_listint(const listint_t *h);
+listint_t *add_nodeint_end(listint_t **head, const int n);
+void free_listint(listint_t *head);
 
-		while (j < i / 2)
-		{
-			if (tab[j] == tab[i - j - 1])
-				j++;
-			else
-				return (0);
-		}
-	}
-	return (1);
-}
+int is_palindrome(listint_t **head);
+
+#endif /* LISTS_H *

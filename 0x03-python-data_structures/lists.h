@@ -1,39 +1,32 @@
-#ifndef LISTS_H
-#define LISTS_H
-
-#include <stdio.h>
-#include <stdlib.h>
+#include "lists.h"
 
 /**
- * struct listint_s - singly linked list
- * @n: integer
- * @next: point to the next node
- * Description: singly linked list node structure
+ * is_palindrome - checks if a linked list is a palindrome
+ *  @head: the head address of the linked list
+ *  Return: 1 if it's a palindrome, 0 else
  */
 
-typedef struct listint_s
+int is_palindrome(listint_t **head)
 {
-	int n;
-	struct listint_s *next;
-} listint_s;
+	listint_t *cur = *head;
+	int tab[2048], i = 0, j = 0;
 
-size_t print_listint(const listint_t *h);
-listint_t *add_nodeint_end(listint_t **head, const int n);
-void free_listint(listint_t *head);
-int is_palindrome(listint_t **head);
+	if (*head)
+	{
+		while (cur)
+		{
+			tab[i] = cur->n;
+			cur = cur->next;
+			i++;
+		}
 
-def print_list_integer(my_list=[]):
-def element_at(my_list, idx):
-def replace_in_list(my_list, idx, element):
-def print_reversed_list_integer(my_list=[]):
-def new_in_list(my_list, idx, element):
-def no_c(my_string):
-def print_matrix_integer(matrix=[[]]):
-def add_tuple(tuple_a=(), tuple_b=()):
-def multiple_returns(sentence):
-def max_integer(my_list=[]):
-def divisible_by_2(my_list=[]):
-def delete_at(my_list=[], idx=0):
-void print_python_list_info(PyObject *p);
-
-#endif /* LISTS_H */
+		while (j < i / 2)
+		{
+			if (tab[j] == tab[i - j - 1])
+				j++;
+			else
+				return (0);
+		}
+	}
+	return (1);
+}

@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-# 10-best_score.py
-
 def best_score(a_dictionary):
     if not a_dictionary:
         return None
@@ -8,6 +6,6 @@ def best_score(a_dictionary):
     for key, value in a_dictionary.items():
         if value > biggest:
             biggest = value
-     for key, value in a_dictionary.items():
+    for key, value in a_dictionary.items():
         if value == biggest:
-             return key
+            return key
